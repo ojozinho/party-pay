@@ -6,6 +6,8 @@ This is not a production payment app. Pix, split, QR validation, operators, fina
 
 ## Run
 
+If `npm` and `npx` are available:
+
 ```bash
 npm install
 npx expo start
@@ -17,6 +19,18 @@ Alternative:
 
 ```bash
 npm run android
+```
+
+On Windows, if PowerShell says `npm` or `npx` is not recognized, use the included portable Node helper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-expo-windows.ps1
+```
+
+Install dependencies only:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-expo-windows.ps1 -InstallOnly
 ```
 
 ## Demo Roles

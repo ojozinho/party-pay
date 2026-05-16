@@ -6,10 +6,22 @@
 npm install
 ```
 
+If Windows cannot find `npm`, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-expo-windows.ps1 -InstallOnly
+```
+
 2. Start Expo:
 
 ```bash
 npx expo start
+```
+
+If Windows cannot find `npx`, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-expo-windows.ps1
 ```
 
 3. Run on Android:
