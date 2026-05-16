@@ -1,0 +1,23 @@
+export const enUS = {
+  demo: 'Executable prototype',
+  customer: 'Enter as customer',
+  bartender: 'Enter as bartender',
+  admin: 'Enter as admin',
+  login: 'Enter demo account',
+  start: 'start',
+  eventCode: 'event code',
+  scanQr: 'Scan QR',
+  nearMe: 'near me',
+  menu: 'menu',
+  cart: 'cart',
+  payPix: 'pay with Pix',
+  approvePix: 'simulate Pix approved',
+  pickupQr: 'pickup QR',
+  orderReady: 'ready for pickup',
+  delivered: 'delivered',
+  dashboard: 'dashboard',
+  orders: 'orders',
+  products: 'products',
+  operators: 'operators',
+  finance: 'simulated finance'
+};

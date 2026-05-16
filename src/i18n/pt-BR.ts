@@ -1,0 +1,23 @@
+export const ptBR = {
+  demo: 'Protótipo executável',
+  customer: 'Entrar como cliente',
+  bartender: 'Entrar como bartender',
+  admin: 'Entrar como admin',
+  login: 'Entrar na conta demo',
+  start: 'começar',
+  eventCode: 'código do rolê',
+  scanQr: 'Escanear QR',
+  nearMe: 'perto de mim',
+  menu: 'cardápio',
+  cart: 'carrinho',
+  payPix: 'pagar com Pix',
+  approvePix: 'simular Pix aprovado',
+  pickupQr: 'QR de retirada',
+  orderReady: 'pronto pra retirada',
+  delivered: 'entregue',
+  dashboard: 'painel',
+  orders: 'pedidos',
+  products: 'produtos',
+  operators: 'operadores',
+  finance: 'financeiro simulado'
+};
