@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Party Pay",
+    "slug": "party-pay",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.partypay.prototype",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0B0D"
+      }
+    },
+    "extra": {
+      "prototype": true
+    }
+  }
+}
