@@ -1,6 +1,5 @@
 import React from 'react';
 import { ImageBackground, Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import Animated, { FadeInDown, FadeInUp, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../theme/colors';
@@ -23,7 +22,7 @@ export function Screen({ children, glow = 'lavender' }: { children: React.ReactN
 
 export function Header({ title, sub, onBack, right }: { title?: string; sub?: string; onBack?: () => void; right?: React.ReactNode }) {
   return (
-    <Animated.View entering={FadeInUp.duration(360)} style={styles.header}>
+    <View style={styles.header}>
       {onBack ? (
         <Pressable onPress={onBack} style={styles.circle}>
           <Ionicons name="chevron-back" size={20} color={colors.text} />
@@ -34,7 +33,7 @@ export function Header({ title, sub, onBack, right }: { title?: string; sub?: st
         {title ? <Text numberOfLines={1} style={styles.headerTitle}>{title}</Text> : null}
       </View>
       {right ?? <View style={styles.circleGhost} />}
-    </Animated.View>
+    </View>
   );
 }
 
@@ -48,27 +47,24 @@ export function Brand({ business }: { business?: boolean }) {
 }
 
 export function Button({ label, onPress, variant = 'acid', icon, style }: { label: string; onPress: () => void; variant?: 'acid' | 'ghost' | 'lavender' | 'coral' | 'dark'; icon?: keyof typeof Ionicons.glyphMap; style?: ViewStyle }) {
-  const scale = useSharedValue(1);
-  const animated = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
   const bg = variant === 'acid' ? colors.acid : variant === 'lavender' ? colors.lavender : variant === 'coral' ? colors.coral : variant === 'dark' ? colors.bg : 'rgba(255,255,255,0.06)';
   const fg = variant === 'ghost' || variant === 'dark' ? colors.text : colors.bg;
   return (
-    <Animated.View style={[animated, style]}>
+    <View style={style}>
       <Pressable
-        onPressIn={() => { scale.value = withSpring(0.97); }}
-        onPressOut={() => { scale.value = withSpring(1); }}
         onPress={onPress}
-        style={[styles.button, { backgroundColor: bg, borderColor: variant === 'ghost' ? colors.line : 'transparent' }]}
+        android_ripple={{ color: 'rgba(255,255,255,0.12)', borderless: false }}
+        style={({ pressed }) => [styles.button, { backgroundColor: bg, borderColor: variant === 'ghost' ? colors.line : 'transparent', opacity: pressed ? 0.86 : 1, transform: [{ scale: pressed ? 0.98 : 1 }] }]}
       >
         {icon ? <Ionicons name={icon} size={18} color={fg} /> : null}
         <Text style={[styles.buttonText, { color: fg }]}>{label}</Text>
       </Pressable>
-    </Animated.View>
+    </View>
   );
 }
 
 export function Card({ children, style, delay = 0 }: { children: React.ReactNode; style?: ViewStyle; delay?: number }) {
-  return <Animated.View entering={FadeInDown.delay(delay).duration(420)} style={[styles.card, style]}>{children}</Animated.View>;
+  return <View style={[styles.card, style]}>{children}</View>;
 }
 
 export function Pill({ label, active }: { label: string; active?: boolean }) {

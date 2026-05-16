@@ -2,7 +2,6 @@ import React from 'react';
 import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
-import Animated, { FadeIn, FadeInDown, FadeInUp, SlideInRight } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Button, Brand, Card, FakeQr, Header, MascotCup, Pill, PosterImage, Screen, StatusTag } from './src/components/ui';
@@ -33,7 +32,7 @@ function Shell() {
   return (
     <>
       <StatusBar style="light" />
-      <Animated.View key={route} entering={route === 'splash' ? FadeIn.duration(300) : SlideInRight.springify().damping(18)} style={{ flex: 1 }}>
+      <View key={route} style={{ flex: 1 }}>
         {route === 'splash' && <Splash />}
         {route === 'onboarding' && <Onboarding {...props} />}
         {route === 'launcher' && <Launcher {...props} />}
@@ -57,7 +56,7 @@ function Shell() {
         {route === 'adminOrders' && <AdminOrders {...props} />}
         {route === 'adminOperators' && <AdminOperators {...props} />}
         {route === 'adminFinance' && <AdminFinance {...props} />}
-      </Animated.View>
+      </View>
     </>
   );
 }
@@ -76,11 +75,11 @@ function Splash() {
   return (
     <Screen glow="lavender">
       <View style={styles.centerScreen}>
-        <Animated.View entering={FadeInUp.duration(700)} style={styles.ring}>
+        <View style={styles.ring}>
           <Text style={styles.ringText}>PARTY PAY • PIX • SEM FILA •</Text>
-        </Animated.View>
+        </View>
         <MascotCup size={154} color={colors.lavender} />
-        <Animated.Text entering={FadeInDown.delay(280)} style={styles.splashLogo}>party{'\n'}<Text style={{ color: colors.acid }}>pay</Text><Text style={{ color: colors.coral }}>.</Text></Animated.Text>
+        <Text style={styles.splashLogo}>party{'\n'}<Text style={{ color: colors.acid }}>pay</Text><Text style={{ color: colors.coral }}>.</Text></Text>
         <Text style={styles.dim}>bebida sem fila · pediu, pagou, retirou</Text>
       </View>
     </Screen>
